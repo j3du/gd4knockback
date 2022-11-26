@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://e4pkwg8yvhfm"]
+
+[ext_resource type="Script" path="res://box_red_moving.gd" id="1_rt7f7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eegeb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlw6j"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6byox"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mxgg7"]
+
+[node name="box_red_moving" type="CharacterBody3D" groups=["box_red"]]
+script = ExtResource("1_rt7f7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_eegeb")
+surface_material_override/0 = SubResource("StandardMaterial3D_hlw6j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6byox")
+
+[node name="box_attack_area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box_attack_area"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_mxgg7")

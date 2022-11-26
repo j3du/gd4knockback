@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://lqqywmn505iv"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_c25it"]
+[ext_resource type="PackedScene" uid="uid://dvaaalghkyo7u" path="res://static_body_3d.tscn" id="2_2e1bf"]
+[ext_resource type="PackedScene" uid="uid://yom7bxq8wfki" path="res://player.tscn" id="3_cej0f"]
+[ext_resource type="PackedScene" uid="uid://c0eeu1qcn5fss" path="res://box_green_pushback.tscn" id="4_gy00k"]
+[ext_resource type="PackedScene" uid="uid://blubsfeo76siy" path="res://box_yellow_bounceback.tscn" id="6_57mxf"]
+[ext_resource type="PackedScene" uid="uid://c5uh60x2a8im4" path="res://box_blue_static.tscn" id="7_5pdfs"]
+[ext_resource type="PackedScene" uid="uid://e4pkwg8yvhfm" path="res://box_red_moving.tscn" id="7_q0hor"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_c25it")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 20, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.918901, 0.394487, 0, -0.394487, 0.918901, 0, 6.52794, 7.12145)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("2_2e1bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_cej0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22489, 0)
+
+[node name="box_green_pushback" parent="." instance=ExtResource("4_gy00k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.80407, 0.646076, -0.101597)
+
+[node name="box_yellow_bounceback" parent="." instance=ExtResource("6_57mxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02758, 0.788394, -2.92418)
+
+[node name="box_red_moving" parent="." instance=ExtResource("7_q0hor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681747, -4.32736)
+
+[node name="box_blue_static" parent="." instance=ExtResource("7_5pdfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72398, 0.784272, 0)
